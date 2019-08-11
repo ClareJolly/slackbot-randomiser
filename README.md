@@ -34,4 +34,3 @@ In Slack, type `/test` and it will send a message to the general channel
 - **PARTICULARLY USEFUL** - https://api.slack.com/tutorials/app-creation-and-oauth
 - **PARTICULARLY USEFUL** - https://api.slack.com/docs/oauth#using_tokens
 - https://api.slack.com/docs/oauth#redirect_urls
-- 
