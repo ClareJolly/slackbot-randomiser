@@ -42,7 +42,7 @@ get the url - and use this url in the slack app
 
 `yarn start`
 
-go to localhost:3000/auth and read the console to get the BOT_AUTH_TOKEN.  Use this in the .env file
+go to localhost:3000/auth and read the console to get the BOT_TOKEN.  Use this in the .env file
 
 ### Try in Slack
 
