@@ -1,6 +1,6 @@
 # Randomiser SlackBot
 
-For the moment just sends a basic message but this will eventually do more
+For the moment just sends a basic message with a random name but this will eventually do more
 
 ## Setup (so far - will change once fully working)
 
