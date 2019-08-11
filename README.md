@@ -4,9 +4,11 @@ For the moment just sends a basic message but this will eventually do more
 
 ## Setup (so far - will change once fully working)
 
-`yarn`
+### Install dependencies
 
-Create .env file
+  `yarn`
+
+- Create .env file
 
 ```
 SLACK_CLIENT_ID=<SLACK_CLIENT_ID>
@@ -16,13 +18,33 @@ REDIRECT_URI=<REDIRECT_URI>
 BOT_TOKEN=<BOT_TOKEN>
 ```
 
+### Create team list in `team.json` in the root
+
+```
+{
+  "TEAM": [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e"
+  ]
+}
+```
+
+### Start the ngrok session
+
 `ngrok http 3000`
 
 get the url - and use this url in the slack app
 
+### Start the server
+
 `yarn start`
 
 go to localhost:3000/auth and read the console to get the BOT_AUTH_TOKEN.  Use this in the .env file
+
+### Try in Slack
 
 In Slack, type `/test` and it will send a message to the general channel
 

@@ -3,6 +3,9 @@ require('dotenv').config();
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require("request")
+const path = require('path')
+
+const team = require('./team.json')
 
 const app = express()
 
@@ -14,9 +17,21 @@ app.listen(process.env.PORT || PORT, function () {
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'public')));
+
+const randomiser = () => {
+  const teamList = team.TEAM
+  const random = teamList[Math.floor(Math.random() * teamList.length)]
+  return random
+}
 
 app.get('/', (req, res) => {
   const text = 'I see you'
+  res.send(text)
+})
+
+app.get('/random', (req, res) => {
+  const text = randomiser()
   res.send(text)
 })
 
@@ -27,14 +42,15 @@ app.get('/auth', (req, res) =>{
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.post('/', (req, res) => {
+  const randomPerson = randomiser()
 var data = {form: {
       token: process.env.BOT_TOKEN,
       channel: "general",
-      text: "Hi! :wave: \n I'm your new bot."
+      text: "Hi! :wave: \n I'm your new bot. It's " + randomPerson + "'s turn to do stuff"
     }};
 request.post('https://slack.com/api/chat.postMessage', data, function (error, response, body) {
       // Sends welcome message
-      console.log(response)
+      // console.log(response)
       res.json();
     });
 });
